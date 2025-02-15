@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00796b; /* Dark teal color for the heading */
+            margin-bottom: 30px;
+            font-size: 2rem; /* Responsive font size */
+        }
+        .course-coordinator {
+            background-color: #ffcc80; /* Light orange background for the coordinator section */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 30px; /* Space below the coordinator section */
+            display: flex;
+            flex-direction: column; /* Stack items vertically on mobile */
+            align-items: center; /* Center-align items */
+        }
+        .course-coordinator h2 {
+            margin-top: 0;
+            color: #e65100; /* Dark orange color for the coordinator heading */
+            font-size: 1.75rem; /* Responsive font size */
+        }
+        .coordinator-profile {
+            width: 120px; /* Size of the circle */
+            height: 120px; /* Size of the circle */
+            border-radius: 50%; /* Makes the wrapper circular */
+            background-color: #e65100; /* Dark orange background for the circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px; /* Space below the profile picture */
+        }
+        .coordinator-profile img {
+            width: 100px; /* Size of the profile picture */
+            height: 100px; /* Size of the profile picture */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 2px solid #ffffff; /* White border around the image */
+        }
+        .course-coordinator p {
+            margin: 5px 0;
+            font-size: 1rem; /* Responsive font size */
+            color: #555;
+            text-align: center; /* Center-align text on mobile */
+        }
+        .course-coordinator p strong {
+            color: #e65100; /* Dark orange color for field names */
+        }
+        .student {
+            background-color: #ffffff; /* White background for each student block */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+            display: flex;
+            flex-direction: column; /* Stack items vertically on mobile */
+            align-items: center; /* Center-align profile picture */
+        }
+        .student:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+        }
+        .profile-picture {
+            width: 120px; /* Size of the circle */
+            height: 120px; /* Size of the circle */
+            border-radius: 50%; /* Makes the wrapper circular */
+            background-color: #00796b; /* Dark teal background for the circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px; /* Space below the profile picture on mobile */
+        }
+        .profile-picture img {
+            width: 100px; /* Size of the profile picture */
+            height: 100px; /* Size of the profile picture */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 2px solid #ffffff; /* White border around the image */
+        }
+        .student-details {
+            width: 100%; /* Full width for text */
+            text-align: left; /* Left-align text on mobile */
+        }
+        .student h2 {
+            margin-top: 0;
+            color: #00796b; /* Dark teal color for student number */
+            font-size: 1.5rem; /* Responsive font size */
+        }
+        .student p {
+            margin: 5px 0;
+            font-size: 1rem; /* Responsive font size */
+            color: #555;
+        }
+        .student p strong {
+            color: #00796b; /* Dark teal color for field names */
+        }
+
+        /* Desktop View */
+        @media (min-width: 768px) {
+            .course-coordinator {
+                flex-direction: row; /* Align items horizontally on desktop */
+                align-items: center; /* Center-align items */
+                text-align: left; /* Left-align text on desktop */
+            }
+            .coordinator-profile {
+                margin-right: 20px; /* Space between the image and the text on desktop */
+                margin-bottom: 0; /* Remove bottom margin on desktop */
+            }
+            .course-coordinator p {
+                text-align: left; /* Left-align text on desktop */
+            }
+            .student {
+                flex-direction: row; /* Align items horizontally on desktop */
+                align-items: flex-start; /* Align items to the top */
+            }
+            .profile-picture {
+                margin-right: 20px; /* Space between the image and the text on desktop */
+                margin-bottom: 0; /* Remove bottom margin on desktop */
+            }
+            .student-details {
+                text-align: left; /* Left-align text on desktop */
+            }
+            h1 {
+                font-size: 2.5rem; /* Larger font size for desktop */
+            }
+            .course-coordinator h2 {
+                font-size: 2rem; /* Larger font size for desktop */
+            }
+            .course-coordinator p {
+                font-size: 1.1rem; /* Larger font size for desktop */
+            }
+            .student h2 {
+                font-size: 1.75rem; /* Larger font size for desktop */
+            }
+            .student p {
+                font-size: 1.1rem; /* Larger font size for desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Studet Details(2020-21)</h1>
+
+    <!-- Course Coordinator Section -->
+    <div class="course-coordinator">
+        <div class="coordinator-profile">
+            <img src="https://via.placeholder.com/100" alt="Course Coordinator Profile Picture">
+        </div>
+        <div>
+            <h2>Course Coordinator</h2>
+            <p><strong>Name:</strong> Dr. Emily Carter</p>
+            <p><strong>Email:</strong> emily.carter@example.com</p>
+            <p><strong>Contact:</strong> +123 456 7899</p>
+            <p><strong>Department:</strong> Computer Science</p>
+        </div>
+    </div>
+
+    <!-- Student 1 -->
+    <div class="student">
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        </div>
+        <div class="student-details">
+            <h2>Student 1</h2>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Session:</strong> 2022-2023</p>
+            <p><strong>Roll:</strong> 101</p>
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Contact:</strong> +123 456 7890</p>
+        </div>
+    </div>
+
+    <!-- Student 2 -->
+    <div class="student">
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        </div>
+        <div class="student-details">
+            <h2>Student 2</h2>
+            <p><strong>Name:</strong> Jane Smith</p>
+            <p><strong>Gender:</strong> Female</p>
+            <p><strong>Session:</strong> 2022-2023</p>
+            <p><strong>Roll:</strong> 102</p>
+            <p><strong>Email:</strong> jane.smith@example.com</p>
+            <p><strong>Contact:</strong> +123 456 7891</p>
+        </div>
+    </div>
+
+    <!-- Student 3 -->
+    <div class="student">
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        </div>
+        <div class="student-details">
+            <h2>Student 3</h2>
+            <p><strong>Name:</strong> Alice Johnson</p>
+            <p><strong>Gender:</strong> Female</p>
+            <p><strong>Session:</strong> 2022-2023</p>
+            <p><strong>Roll:</strong> 103</p>
+            <p><strong>Email:</strong> alice.johnson@example.com</p>
+            <p><strong>Contact:</strong> +123 456 7892</p>
+        </div>
+    </div>
+
+    <!-- Add more students here -->
+    <!-- Example for the 33rd student -->
+    <div class="student">
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        </div>
+        <div class="student-details">
+            <h2>Student 4</h2>
+            <p><strong>Name:</strong> Michael Brown</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Session:</strong> 2022-2023</p>
+            <p><strong>Roll:</strong> 133</p>
+            <p><strong>Email:</strong> michael.brown@example.com</p>
+            <p><strong>Contact:</strong> +123 456 7893</p>
+        </div>
+    </div>
+
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 5</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 6</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 7</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 8</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 9</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 10</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 11</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 12</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 13</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 14</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 15</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 16</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 17</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 18</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 19</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 20</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 21</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 22</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 23</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 24</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 25</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 26</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 27</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 28</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 29</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 30</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 31</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 32</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+<div class="student">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    </div>
+    <div class="student-details">
+        <h2>Student 33</h2>
+        <p><strong>Name:</strong> Sarah Connor</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Session:</strong> 2020-2021</p>
+        <p><strong>Roll:</strong> 104</p>
+        <p><strong>Email:</strong> sarah.connor@example.com</p>
+        <p><strong>Contact:</strong> +123 456 7894</p>
+    </div>
+</div>
+</body>
+</html>
